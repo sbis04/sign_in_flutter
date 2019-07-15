@@ -48,7 +48,7 @@ The plugins used in this project are:
 1. ["firebase_auth"](https://pub.dev/packages/firebase_auth).
 2. ["google_sign_in"](https://pub.dev/packages/google_sign_in).
 
-Add this to your package's pubspec.yaml file to use wear:
+Add this to your package's pubspec.yaml file to use **Firebase** & **Google Sign In**:
 ```yaml
 dependencies:
   firebase_auth: ^0.11.1+8
