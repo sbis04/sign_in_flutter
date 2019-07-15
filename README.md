@@ -16,7 +16,7 @@ With the introduction of Flutter 1.7, the most frustrating thing fixing **Andrio
 
 Now, you need to fill the **OAuth consent form** in order to use **Firebase** in your app, otherwise your app will just crash. So, make sure you checkout my **Medium article**.
 
-## Using this app
+# Using this app
 If you want to clone and use this app, then you have to complete the following steps:
 
 ### Step 1: Complete the Firebase setup
