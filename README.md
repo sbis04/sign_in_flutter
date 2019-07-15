@@ -1,6 +1,20 @@
-# sign_in_flutter
+# Flutter Google Sign In using Firebase
 
-A new Flutter project.
+<p align="center">
+  <img src="https://github.com/sbis04/sign_in_flutter/blob/master/Screenshot/login_cover.png">
+</p>
+
+### **Checkout my Medium article ["Flutter: Implementing Google Sign In"](https://medium.com/flutter-community/flutter-implementing-google-sign-in-71888bca24ed).**
+
+In this app, I have implemented **Google Sign In** using **Firebase** for both Android and iOS, fixing all the issues with the latest Flutter updates. To understand how to fix all the **Firebase** issues in **Flutter** make sure you check out my **Medium aticle**.
+
+## Flutter 1.7 updates
+
+With the introduction of Flutter 1.7, the most frustrating thing fixing **AndriodX incompatibilities** has been taken care of. Now, you can just create a new project using the `--androidx` flag to ensure the generated project targets the new support library.
+
+## Firebase changes
+
+Now, you need to fill the **OAuth consent form** in order to use **Firebase** in your app, otherwise your app will just crash. So, make sure you checkout my **Medium article**.
 
 ## Getting Started
 
