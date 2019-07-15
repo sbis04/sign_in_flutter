@@ -16,6 +16,25 @@ With the introduction of Flutter 1.7, the most frustrating thing fixing **Andrio
 
 Now, you need to fill the **OAuth consent form** in order to use **Firebase** in your app, otherwise your app will just crash. So, make sure you checkout my **Medium article**.
 
+## Using this app
+If you want to clone and use this app, then you have to complete the following steps:
+
+### Step 1: Complete the Firebase setup
+
+First of all, complete the whole Firebase setup for both **Android** and **iOS**. You will get two files while doing the setup, one for each platform. You have to place the **google-services.json** & **GoogleService-Info.plist** files in the respective directory of each platform. For more info, check out my Medium article.
+
+### Step 2: Completing the iOS integrtion
+
+For the iOS part, you have to do one more step. You find a **TODO** in **Info.plist** file, just complete that.
+
+### Step 3: Run the app
+
+Now, you can run the app on your device using the command:
+
+```bash
+flutter run
+```
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
