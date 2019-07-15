@@ -25,7 +25,7 @@ First of all, complete the whole Firebase setup for both **Android** and **iOS**
 
 ### Step 2: Completing the iOS integration
 
-For the iOS part, you have to do one more step. You find a **TODO** in **Info.plist** file, just complete that.
+For the iOS part, you have to do one more step. You will find a **TODO** in **Info.plist** file, just complete that.
 
 ### Step 3: Run the app
 
