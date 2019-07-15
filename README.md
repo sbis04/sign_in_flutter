@@ -23,7 +23,7 @@ If you want to clone and use this app, then you have to complete the following s
 
 First of all, complete the whole Firebase setup for both **Android** and **iOS**. You will get two files while doing the setup, one for each platform. You have to place the **google-services.json** & **GoogleService-Info.plist** files in the respective directory of each platform. For more info, check out my Medium article.
 
-### Step 2: Completing the iOS integrtion
+### Step 2: Completing the iOS integration
 
 For the iOS part, you have to do one more step. You find a **TODO** in **Info.plist** file, just complete that.
 
