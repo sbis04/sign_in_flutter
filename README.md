@@ -1,4 +1,5 @@
-# Flutter Google Sign In using Firebase
+# Flutter Google Sign In using Firebase 
+![codemagic](https://api.codemagic.io/apps/5d636daaf5035821fb723bc3/5d636daaf5035821fb723bc2/status_badge.svg)
 
 <p align="center">
   <img src="https://github.com/sbis04/sign_in_flutter/blob/master/Screenshot/login_cover.png">
