@@ -38,7 +38,7 @@ Future<String> signInWithGoogle() async {
     idToken: googleSignInAuthentication.idToken,
   );
 
-  final FirebaseUser user = await _auth.signInWithCredential(credential);
+  final FirebaseUser user = (await _auth.signInWithCredential(credential)).user;
 
   // Checking if email and name is null
   assert(user.email != null);
