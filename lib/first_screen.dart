@@ -40,9 +40,7 @@ class FirstScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               CircleAvatar(
-                backgroundImage: NetworkImage(
-                  imageUrl,
-                ),
+                child: imageUrl != null ? Image.network(imageUrl) : SizedBox.shrink(),
                 radius: 60,
                 backgroundColor: Colors.transparent,
               ),
@@ -55,7 +53,7 @@ class FirstScreen extends StatelessWidget {
                     color: Colors.black54),
               ),
               Text(
-                name,
+                name ?? '',
                 style: TextStyle(
                     fontSize: 25,
                     color: Colors.deepPurple,
@@ -70,7 +68,7 @@ class FirstScreen extends StatelessWidget {
                     color: Colors.black54),
               ),
               Text(
-                email,
+                email ?? '',
                 style: TextStyle(
                     fontSize: 25,
                     color: Colors.deepPurple,
@@ -80,7 +78,10 @@ class FirstScreen extends StatelessWidget {
               RaisedButton(
                 onPressed: () {
                   signOutGoogle();
-                  Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {return LoginPage();}), ModalRoute.withName('/'));
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) {
+                    return LoginPage();
+                  }), ModalRoute.withName('/'));
                 },
                 color: Colors.deepPurple,
                 child: Padding(
