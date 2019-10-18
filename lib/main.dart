@@ -19,10 +19,23 @@
 // SOFTWARE.
 
 import 'package:flutter/material.dart';
+import 'package:connectivity/connectivity.dart';
 
 import 'login_page.dart';
+import 'no_network.dart';
 
-void main() => runApp(MyApp());
+// Default page variable
+Widget _home;
+
+Future<void> main() async {
+  // Check for network connectivity
+  // If there are currently no connections, show the no network page
+  // otherwise, show the login page
+  final connectivityResult = await Connectivity().checkConnectivity();
+  _home = connectivityResult != ConnectivityResult.none ? LoginPage() : NoNetwork();
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -33,7 +46,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home: _home,
     );
   }
 }

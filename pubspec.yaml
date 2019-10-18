@@ -25,6 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   firebase_auth: ^0.14.0+5
   google_sign_in: ^4.0.7
+  connectivity: ^0.4.5
+  shimmer: ^1.0.1
 
 dev_dependencies:
   flutter_test:
