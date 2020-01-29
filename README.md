@@ -20,15 +20,26 @@ Now, you need to fill the **OAuth consent form** in order to use **Firebase** in
 # Using this app
 If you want to clone and use this app, then you have to complete the following steps:
 
-### Step 1: Complete the Firebase setup
+### Step 1: Generate the SHA-1
+
+Use the following command to generate **SHA-1**:
+
+```bash
+keytool -list -v \
+-alias androiddebugkey -keystore ~/.android/debug.keystore
+```
+
+### Step 2: Complete the Firebase setup
 
 First of all, complete the whole Firebase setup for both **Android** and **iOS**. You will get two files while doing the setup, one for each platform. You have to place the **google-services.json** & **GoogleService-Info.plist** files in the respective directory of each platform. For more info, check out my Medium article.
 
-### Step 2: Completing the iOS integration
+> NOTE: USE THE SHA-1 GENERATED FROM YOUR SYSTEM
+
+### Step 3: Completing the iOS integration
 
 For the iOS part, you have to do one more step. You will find a **TODO** in **Info.plist** file, just complete that.
 
-### Step 3: Run the app
+### Step 4: Run the app
 
 Now, you can run the app on your device using the command:
 
