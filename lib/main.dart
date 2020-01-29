@@ -19,12 +19,31 @@
 // SOFTWARE.
 
 import 'package:flutter/material.dart';
+import 'package:sign_in_flutter/first_screen.dart';
+import 'package:sign_in_flutter/sign_in.dart';
 
 import 'login_page.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    getUserInfo();
+  }
+
+  Future getUserInfo() async {
+    await getUser();
+    setState(() {});
+    print(uid);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,7 +52,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginPage(),
+      home:
+          (uid != null && authSignedIn != false) ? FirstScreen() : LoginPage(),
     );
   }
 }
