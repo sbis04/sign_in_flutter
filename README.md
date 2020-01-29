@@ -9,6 +9,8 @@
 
 In this app, I have implemented **Google Sign In** using **Firebase** for both Android and iOS, fixing all the issues with the latest Flutter updates. To understand how to fix all the **Firebase** issues in **Flutter** make sure you check out my **Medium article**.
 
+> NOTE: The project is updated to **Flutter version 1.12**.
+
 ## Flutter 1.7 updates
 
 With the introduction of Flutter 1.7, the most frustrating thing fixing **AndriodX incompatibilities** has been taken care of. Now, you can just create a new project using the `--androidx` flag to ensure the generated project targets the new support library.
@@ -63,8 +65,8 @@ The plugins used in this project are:
 Add this to your package's pubspec.yaml file to use **Firebase** & **Google Sign In**:
 ```yaml
 dependencies:
-  firebase_auth: ^0.11.1+8
-  google_sign_in: ^4.0.4
+  firebase_auth: ^0.15.4
+  google_sign_in: ^4.1.1
 ```
 Import using:
 ```dart
