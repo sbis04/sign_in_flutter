@@ -19,9 +19,8 @@
 // SOFTWARE.
 
 import 'package:flutter/material.dart';
+import 'package:sign_in_flutter/profile_screen.dart';
 import 'package:sign_in_flutter/sign_in.dart';
-
-import 'first_screen.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -57,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
-                return FirstScreen();
+                return ProfileScreen();
               },
             ),
           );

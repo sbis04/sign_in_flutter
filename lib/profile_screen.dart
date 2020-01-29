@@ -21,8 +21,78 @@
 import 'package:flutter/material.dart';
 import 'package:sign_in_flutter/login_page.dart';
 import 'package:sign_in_flutter/sign_in.dart';
+import 'package:sign_in_flutter/transaction_screen.dart';
+import 'package:local_auth/local_auth.dart';
+import 'package:flutter/services.dart';
 
-class FirstScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  final LocalAuthentication _localAuthentication = LocalAuthentication();
+
+  Future<bool> _isBiometricAvailable() async {
+    bool isAvailable = false;
+    try {
+      isAvailable = await _localAuthentication.canCheckBiometrics;
+    } on PlatformException catch (e) {
+      print(e);
+    }
+
+    if (!mounted) return isAvailable;
+
+    isAvailable
+        ? print('Biometric is available!')
+        : print('Biometric is unavailable.');
+
+    return isAvailable;
+  }
+
+  Future<void> _getListOfBiometricTypes() async {
+    List<BiometricType> listofBiometrics;
+    try {
+      listofBiometrics = await _localAuthentication.getAvailableBiometrics();
+    } on PlatformException catch (e) {
+      print(e);
+    }
+
+    if (!mounted) return;
+
+    print(listofBiometrics);
+  }
+
+  Future<void> _authenticateUser() async {
+    bool isAuthenticated = false;
+    try {
+      isAuthenticated = await _localAuthentication.authenticateWithBiometrics(
+        localizedReason:
+            "Please authenticate to view your transaction overview",
+        useErrorDialogs: true,
+        stickyAuth: true,
+      );
+    } on PlatformException catch (e) {
+      print(e);
+    }
+
+    if (!mounted) return;
+
+    setState(() {
+      isAuthenticated
+          ? print('User is authenticated!')
+          : print('User is not authenticated.');
+
+      if (isAuthenticated) {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => TransactionScreen(),
+          ),
+        );
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,9 +148,38 @@ class FirstScreen extends StatelessWidget {
               ),
               SizedBox(height: 40),
               RaisedButton(
+                onPressed: () async {
+                  if (await _isBiometricAvailable()) {
+                    await _getListOfBiometricTypes();
+                    await _authenticateUser();
+                  }
+
+                  // Navigator.of(context).push(
+                  //   MaterialPageRoute(
+                  //     builder: (context) => TransactionScreen(),
+                  //   ),
+                  // );
+                },
+                color: Colors.deepPurple,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Transaction Overview',
+                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  ),
+                ),
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(40)),
+              ),
+              SizedBox(height: 40),
+              RaisedButton(
                 onPressed: () {
                   signOutGoogle();
-                  Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) {return LoginPage();}), ModalRoute.withName('/'));
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: (context) {
+                    return LoginPage();
+                  }), ModalRoute.withName('/'));
                 },
                 color: Colors.deepPurple,
                 child: Padding(

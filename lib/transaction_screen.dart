@@ -19,41 +19,35 @@
 // SOFTWARE.
 
 import 'package:flutter/material.dart';
-import 'package:sign_in_flutter/profile_screen.dart';
-import 'package:sign_in_flutter/sign_in.dart';
 
-import 'login_page.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  void initState() {
-    super.initState();
-    getUserInfo();
-  }
-
-  Future getUserInfo() async {
-    await getUser();
-    setState(() {});
-    print(uid);
-  }
-
+class TransactionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Login',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.deepPurple[300],
+        elevation: 0,
       ),
-      home:
-          (uid != null && authSignedIn != false) ? ProfileScreen() : LoginPage(),
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.deepPurple[300], Colors.deepPurple[900]],
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Transaction Overview',
+                style: TextStyle(fontSize: 30, color: Colors.white),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
