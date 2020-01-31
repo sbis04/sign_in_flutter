@@ -51,16 +51,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Future<void> _getListOfBiometricTypes() async {
-    List<BiometricType> listofBiometrics;
+    List<BiometricType> listOfBiometrics;
     try {
-      listofBiometrics = await _localAuthentication.getAvailableBiometrics();
+      listOfBiometrics = await _localAuthentication.getAvailableBiometrics();
     } on PlatformException catch (e) {
       print(e);
     }
 
     if (!mounted) return;
 
-    print(listofBiometrics);
+    print(listOfBiometrics);
   }
 
   Future<void> _authenticateUser() async {
@@ -78,19 +78,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     if (!mounted) return;
 
-    setState(() {
-      isAuthenticated
-          ? print('User is authenticated!')
-          : print('User is not authenticated.');
+    isAuthenticated
+        ? print('User is authenticated!')
+        : print('User is not authenticated.');
 
-      if (isAuthenticated) {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => TransactionScreen(),
-          ),
-        );
-      }
-    });
+    if (isAuthenticated) {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => TransactionScreen(),
+        ),
+      );
+    }
   }
 
   @override
