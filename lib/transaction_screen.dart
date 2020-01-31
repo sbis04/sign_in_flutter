@@ -40,10 +40,13 @@ class TransactionScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Image.asset('assets/money.png'),
+              SizedBox(height: 40),
               Text(
                 'Transaction Overview',
                 style: TextStyle(fontSize: 30, color: Colors.white),
               ),
+              SizedBox(height: 50),
             ],
           ),
         ),
