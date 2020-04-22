@@ -54,10 +54,11 @@ class _LoginPageState extends State<LoginPage> {
       splashColor: Colors.grey,
       onPressed: () {
         signInWithGoogle().whenComplete(() {
+          (uid != null && authSignedIn != false) ?
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) {
-                return FirstScreen();
+                return FirstScreen() : LoginPage();
               },
             ),
           );
