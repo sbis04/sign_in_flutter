@@ -1,9 +1,9 @@
 # Flutter Google Sign In using Firebase 
 ![codemagic](https://api.codemagic.io/apps/5d636daaf5035821fb723bc3/5d636daaf5035821fb723bc2/status_badge.svg)
 
-<p align="center">
+<!-- <p align="center">
   <img src="https://github.com/sbis04/sign_in_flutter/raw/master/Screenshot/login_cover.png">
-</p>
+</p> -->
 
 ### **Checkout my Medium article ["Flutter: Implementing Google Sign In"](https://medium.com/flutter-community/flutter-implementing-google-sign-in-71888bca24ed).**
 
@@ -51,9 +51,9 @@ flutter run
 
 # Screenshots
 
-<p align="left">
+<!-- <p align="left">
   <img src="https://github.com/sbis04/sign_in_flutter/raw/master/Screenshot/login_screens.png">
-</p>
+</p> -->
 
 # Plugins
 
@@ -77,6 +77,64 @@ Import using:
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+```
+
+# Methods
+
+Following are two useful methods for authentication using **Firebase** and **Google Sign In**. You can use these as the basic template for your starting project.
+
+**NOTE: These does not check for all edge cases and you should add other security restrictions as per your requirement in your production app**
+
+For signing in using a Google account:
+
+```dart
+Future<String> signInWithGoogle() async {
+  await Firebase.initializeApp();
+
+  final GoogleSignInAccount googleSignInAccount = await googleSignIn.signIn();
+  final GoogleSignInAuthentication googleSignInAuthentication = await googleSignInAccount.authentication;
+
+  final AuthCredential credential = GoogleAuthProvider.credential(
+    accessToken: googleSignInAuthentication.accessToken,
+    idToken: googleSignInAuthentication.idToken,
+  );
+
+  final UserCredential authResult = await _auth.signInWithCredential(credential);
+  final User user = authResult.user;
+
+  if (user != null) {
+    // Checking if email and name is null
+    assert(user.email != null);
+    assert(user.displayName != null);
+    assert(user.photoURL != null);
+
+    name = user.displayName;
+    email = user.email;
+    imageUrl = user.photoURL;
+
+    assert(!user.isAnonymous);
+    assert(await user.getIdToken() != null);
+
+    final User currentUser = _auth.currentUser;
+    assert(user.uid == currentUser.uid);
+
+    print('signInWithGoogle succeeded: $user');
+
+    return '$user';
+  }
+
+  return null;
+}
+```
+
+For signing out of your Google account:
+
+```dart
+Future<void> signOutGoogle() async {
+  await googleSignIn.signOut();
+
+  print("User Signed Out");
+}
 ```
 
 # License
