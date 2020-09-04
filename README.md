@@ -127,7 +127,7 @@ Future<String> signInWithGoogle() async {
 }
 ```
 
-For signing out of your Google account:
+For signing out of a Google account:
 
 ```dart
 Future<void> signOutGoogle() async {
