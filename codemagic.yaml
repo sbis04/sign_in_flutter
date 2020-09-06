@@ -76,7 +76,6 @@ workflows:
         echo "Listing android Directory to confirm the google-services.json is there! "
         ls android/app/
 
-        echo "Hello!!"
       - flutter build apk --debug
     publishing:
       email:
@@ -102,6 +101,8 @@ workflows:
 
         echo "\nListing iOS Directory to confirm the GoogleService-Info.plist is there! "
         ls ios/Runner/
+
+      - flutter build apk --debug
     publishing:
       email:
         recipients:
