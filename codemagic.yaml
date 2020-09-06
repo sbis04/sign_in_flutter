@@ -18,7 +18,7 @@ workflows:
         - $HOME/Library/Caches/CocoaPods
     scripts:
       - |
-        # set up debug keystore
+        # Set up debug keystore
         rm -f ~/.android/debug.keystore
         keytool -genkeypair \
           -alias androiddebugkey \
@@ -30,12 +30,17 @@ workflows:
           -keysize 2048 \
           -validity 10000
       - |
-        # set up local properties
+        # Set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
-      - cd . && flutter packages pub get
-      - cd . && flutter test
+      - |
+        # Get Flutter packages
+        cd . && flutter packages pub get
+      - |
+        # Testing
+        cd . && flutter test
       - |
         #!/bin/sh
+        # Checking for Firebase secrets
         echo $ANDROID_FIREBASE_JSON | base64 --decode > $FCI_BUILD_DIR/android/app/google-services.json
 
         echo "Listing android Directory to confirm the google-services.json is there! "
@@ -45,9 +50,13 @@ workflows:
 
         echo "\nListing iOS Directory to confirm the GoogleService-Info.plist is there! "
         ls ios/Runner/
-      - cd . && flutter build apk --debug
-      - find . -name "Podfile" -execdir pod install \;
-      - cd . && flutter build ios --debug --no-codesign
+      - |
+        # Building Android
+        cd . && flutter build apk --debug
+      - |
+        # Building iOS
+        find . -name "Podfile" -execdir pod install \;
+        cd . && flutter build ios --debug --no-codesign
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
