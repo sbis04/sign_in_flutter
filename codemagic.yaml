@@ -73,7 +73,7 @@ workflows:
         #!/bin/sh
         echo $ANDROID_FIREBASE_JSON | base64 --decode > $FCI_BUILD_DIR/android/app/google-services.json
 
-        echo "Listing android Directory to confirm the google-services.json is there! "
+        echo "Listing android Directory to confirm the google-services.json is there!"
         ls android/app/
 
       - flutter build apk --debug
@@ -99,7 +99,7 @@ workflows:
         #!/bin/sh
         echo $IOS_FIREBASE_JSON | base64 --decode > $FCI_BUILD_DIR/ios/Runner/GoogleService-Info.plist
 
-        echo "\nListing iOS Directory to confirm the GoogleService-Info.plist is there! "
+        echo "\nListing iOS Directory to confirm the GoogleService-Info.plist is there!"
         ls ios/Runner/
 
       - flutter build apk --debug
