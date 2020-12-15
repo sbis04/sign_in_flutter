@@ -1,0 +1,9 @@
+Version 3.2.0
+
+What's New:
+* Support for auto login
+* Improved UX
+
+Bug Fixes:
+* Prevent navigating to the first page, when authentication returns error
+* Other small fixes
