@@ -1,5 +1,7 @@
 #### :warning: ARCHIVED: This repository is using Flutter 1.7 for the sample app. You can find the latest version of the similar implementation on [this new repo](https://github.com/sbis04/flutterfire-samples). The new version is using Flutter 2.0 (stable) with null safety enabled, and is tested on Android, iOS & Web.
 
+#### The updated Medium article for "Flutter: Implementing Google Sign In" is [here](https://medium.com/flutter-community/flutter-implementing-google-sign-in-71888bca24ed).
+
 ---
 
 # Flutter Google Sign In using Firebase 
