@@ -1,3 +1,7 @@
+#### :warning: ARCHIVED: This repository is using Flutter 1.7 for the sample app. You can find the latest version of the similar implementation on [this new repo](https://github.com/sbis04/flutterfire-samples). The new version is using Flutter 2.0 (stable) with null safety enabled, and is tested on Android, iOS & Web.
+
+---
+
 # Flutter Google Sign In using Firebase 
 ![codemagic](https://api.codemagic.io/apps/5d636daaf5035821fb723bc3/5d636daaf5035821fb723bc2/status_badge.svg)
 
